@@ -1,0 +1,39 @@
+overwrite: true
+schema:
+  - "schema.graphql"
+generates:
+  src/generated/1.ts:
+    plugins:
+      - "typescript"
+    config:
+      typesPrefix: GraphQL
+  src/generated/2.ts:
+    plugins:
+      - "typescript"
+    config:
+      wrapFieldDefinitions: true
+      fieldWrapperValue: 'T | Promise<T> | (() => T | Promise<T>)'
+      typesPrefix: GraphQL
+  src/generated/3.ts:
+    plugins:
+      - "typescript"
+      - "typescript-resolvers"
+    config:
+      typesPrefix: GraphQL
+      customResolverFn: |
+        ((
+          parent: TParent,
+          args: TArgs,
+          context: TContext,
+          info: GraphQLResolveInfo
+        ) => Promise<TResult> | TResult) |
+         ((
+           args: TArgs,
+           context: TContext,
+           info: GraphQLResolveInfo
+         ) => Promise<TResult> | TResult);
+      mappers:
+        User: ../object#User
+        Post: ../object#Post
+        PublicComment: ../object#PublicComment
+        PrivateComment: ../object#PrivateComment

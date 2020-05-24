@@ -1,0 +1,18 @@
+{
+  "name": "crew",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "gqlg": "graphql-codegen --config codegen.yml"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@graphql-codegen/cli": "^1.14.0",
+    "@graphql-codegen/typescript": "^1.14.0",
+    "@graphql-codegen/typescript-resolvers": "^1.14.0",
+    "apollo-server": "^2.13.1",
+    "graphql": "^15.0.0"
+  }
+}

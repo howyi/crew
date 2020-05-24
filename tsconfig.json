@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "allowJs": true,
+    "sourceMap": true,
+    "strict": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "paths": {
+      "*": [
+        "src/*",
+        "tests/*"
+      ]
+    },
+    "rootDirs": ["src", "tests"],
+    "outDir": ".out/"
+  },
+  "include": [
+    "./src",
+    "./tests",
+    "./__mocks__"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
